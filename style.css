@@ -1,0 +1,44 @@
+body {
+    margin: 0; /* to remove default browser margin */
+    font-family: roboto, sans-serif;
+    color: rgba(0,0,0, .7);
+    background-color: ghostwhite;
+}
+
+:root {
+    --bg-color: rgb(140, 0, 255);
+}
+
+#main-header {
+    background-color: var(--bg-color);
+    color: white;
+    padding: 2rem 5%; /* rem unit is based on the chosen font size. % used to have a nice gap on the right and left content side no matter how large the screen is. */
+    text-align: center;
+}
+
+.btn {
+    font: inherit; /* font should be inherited from the surrounding container - in this case from the body instead of the default browser font for buttons. */
+    padding: 0.5rem 1.5rem; /* looks good for buttons. */
+    background-color: var(--bg-color);
+    border: 1px solid var(--bg-color);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Alternative button look */
+.btn-alt {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--bg-color);
+}
+
+.btn:hover {
+    background-color: rgb(85, 0, 255);
+    border-color: rgb(85, 0, 255);
+}
+
+.btn-alt:hover {
+    background-color: rgb(222, 186, 255);
+    border-color: transparent; /* to overwrite the border color set in the base btn. Otherwise the base btn border-color would be applied - SPECIFICITY in CSS. */
+}

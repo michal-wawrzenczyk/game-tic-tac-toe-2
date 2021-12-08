@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <!-- To make sure that the browser does adjust the scaling corretly.  -->
     <title>Tic Tac Toe Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Introduction: website description for visitors and invitation to the game. -->
-    <header>
+    <header id="main-header">
         <h1>Play Tic, Tac, Toe</h1>
         <p>Built with HTML, CSS, JS and - of course - lots of fun! </p>
     </header>
@@ -29,8 +33,8 @@
                     </div>
                     <!-- This div will hold the buttons for this form. -->
                     <div>
-                        <button type="button">Close</button> <!-- to close the overlay. -->
-                        <button type="submit">Confirm</button> <!-- for submitting the form -->
+                        <button type="button" class="btn btn-alt">Close</button> <!-- to close the overlay. -->
+                        <button type="submit" class="btn">Confirm</button> <!-- for submitting the form -->
                     </div>
                 </form>
             </aside>
@@ -41,7 +45,7 @@
                         <h2>Player 1</h2>
                         <h3>PLAYER NAME</h3> <!-- Will be filled by the player. -->
                         <p>X</p> <!-- Symbol of that player. -->
-                        <button>Edit</button> <!-- To edit the entered data. -->
+                        <button class="btn btn-alt">Edit</button> <!-- To edit the entered data. -->
                     </article>
                 <!-- Second Player -->
                 </li>
@@ -50,11 +54,11 @@
                         <h2>Player 2</h2>
                         <h3>PLAYER NAME</h3>
                         <p>O</p>
-                        <button>Edit</button>
+                        <button class="btn btn-alt">Edit</button>
                     </article>
                 </li>
             </ol>
-            <button>Start New Game</button> <!-- It starts the game based on the entered data. -->
+            <button class="btn">Start New Game</button> <!-- It starts the game based on the entered data. -->
         </section>
 
         <!-- Section with the game field. -->
