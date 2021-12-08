@@ -2,9 +2,83 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <!-- To make sure that the browser does adjust the scaling corretly.  -->
+    <title>Tic Tac Toe Game</title>
 </head>
 <body>
+    <!-- Introduction: website description for visitors and invitation to the game. -->
+    <header>
+        <h1>Play Tic, Tac, Toe</h1>
+        <p>Built with HTML, CSS, JS and - of course - lots of fun! </p>
+    </header>
+    <!-- Game configuration area - main content. -->
+    <main>
+        <!-- "section" to group different HTML elements together - part of the main content. -->
+        <section id="game-configuration">
+            <!-- "aside" is good for complimentary content, sidebar, interaction elements or overlays. -->
+            <aside>
+                <h2>Choose your name</h2>
+                <!-- "form" element to fetch some user input. -->
+                <form>
+                    <div> <!-- it will help with styling later. -->
+                        <label for="playername">Player name</label> <!-- "for" to establish connection between label and input. -->
+                        <!-- "input" to fetch the name of the player. -->
+                        <input type="text" name="playername" id="playername"/> <!-- id to connect the input with label (accessibility reasons). -->
+                    </div>
+                    <!-- This div will hold the buttons for this form. -->
+                    <div>
+                        <button type="button">Close</button> <!-- to close the overlay. -->
+                        <button type="submit">Confirm</button> <!-- for submitting the form -->
+                    </div>
+                </form>
+            </aside>
+            <ol>
+                <!-- First Player -->
+                <li>
+                    <article>
+                        <h2>Player 1</h2>
+                        <h3>PLAYER NAME</h3> <!-- Will be filled by the player. -->
+                        <p>X</p> <!-- Symbol of that player. -->
+                        <button>Edit</button> <!-- To edit the entered data. -->
+                    </article>
+                <!-- Second Player -->
+                </li>
+                <li>
+                    <article>
+                        <h2>Player 2</h2>
+                        <h3>PLAYER NAME</h3>
+                        <p>O</p>
+                        <button>Edit</button>
+                    </article>
+                </li>
+            </ol>
+            <button>Start New Game</button> <!-- It starts the game based on the entered data. -->
+        </section>
 
+        <!-- Section with the game field. -->
+        <section id="active-game">
+            <article>
+                <h3>You won <span id="winner-name">PLAYER NAME</span>!</h3>
+                <p>Click "Start New Game" above, if you want to play once again</p>
+            </article>
+            <p>It's your turn <span id="active-player-name">PLAYER NAME</span>!</p> <!-- It will indicate whose turn it is. "span" to target this element in JS. Player name should change with every turn. -->
+            <!-- Game field as a list of fields whose order matters. -->
+            <ol>
+                <li></li>
+                <li></li>
+                <li></li>
+
+                <li></li>
+                <li></li>
+                <li></li>
+
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+        </section>
+    </main>
 </body>
 </html>
