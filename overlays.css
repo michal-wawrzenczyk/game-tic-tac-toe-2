@@ -1,0 +1,32 @@
+.modal {
+    position: fixed; /* The overlay is always on the top of the content, above everything else. If user scroll, it stays there, where we positioned it.  */
+    top: 20%; /* it should appear 20% down from the top of the screen */
+    left: 5%;
+    width: 90%; /* on the right will be 5%. */
+    background-color: white;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* X and Y values and blur radius of the shadow. */
+    display: none; /* it will be shown with help of JavaScript later. */
+}
+
+/* there also should be a black transparent background above the main content but under the modal, so we can't interact with the content. Backdrop element is needed - it hides the rest of the page when modal is open. */
+#backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* it is fixes and occupies the whole screen. */
+    background-color: rgba(0, 0, 0, .7);
+    display: none; /* it will be shown with help of JavaScript later. */
+}
+
+/* style for bigger screens */
+@media (min-width: 48rem) {
+    /* Now we can apply different style for modal if we are on a screen that has at least 48rem width. */
+    .modal {
+        left: calc(50% - 20rem); /* -20rem to center the modal overlay. */
+        width: 40rem;
+    }
+}

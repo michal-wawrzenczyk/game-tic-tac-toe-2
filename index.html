@@ -10,8 +10,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="overlays.css">
+    <link rel="stylesheet" href="configuration.css">
 </head>
 <body>
+    <div id="backdrop"></div> <!-- only for styling purposes. -->
     <!-- Introduction: website description for visitors and invitation to the game. -->
     <header id="main-header">
         <h1>Play Tic, Tac, Toe</h1>
@@ -19,32 +22,33 @@
     </header>
     <!-- Game configuration area - main content. -->
     <main>
+        <!-- "aside" is good for complimentary content, sidebar, interaction elements or overlays. -->
+        <aside class="modal" id="config-overlay"> <!-- could be an id attribute, but class allows to reuse that style for other overlays if needed. -->
+            <h2>Choose your name</h2>
+            <!-- "form" element to fetch some user input. -->
+            <form>
+                <div class="form-control"> <!-- it will help with styling later. -->
+                    <label for="playername">Player name</label> <!-- "for" to establish connection between label and input. -->
+                    <!-- "input" to fetch the name of the player. -->
+                    <input type="text" name="playername" id="playername"/> <!-- id to connect the input with label (accessibility reasons). -->
+                </div>
+                <!-- This div will hold the buttons for this form. -->
+                <div>
+                    <button type="button" class="btn btn-alt">Close</button> <!-- to close the overlay. -->
+                    <button type="submit" class="btn">Confirm</button> <!-- for submitting the form -->
+                </div>
+            </form>
+        </aside>
+
         <!-- "section" to group different HTML elements together - part of the main content. -->
         <section id="game-configuration">
-            <!-- "aside" is good for complimentary content, sidebar, interaction elements or overlays. -->
-            <aside>
-                <h2>Choose your name</h2>
-                <!-- "form" element to fetch some user input. -->
-                <form>
-                    <div> <!-- it will help with styling later. -->
-                        <label for="playername">Player name</label> <!-- "for" to establish connection between label and input. -->
-                        <!-- "input" to fetch the name of the player. -->
-                        <input type="text" name="playername" id="playername"/> <!-- id to connect the input with label (accessibility reasons). -->
-                    </div>
-                    <!-- This div will hold the buttons for this form. -->
-                    <div>
-                        <button type="button" class="btn btn-alt">Close</button> <!-- to close the overlay. -->
-                        <button type="submit" class="btn">Confirm</button> <!-- for submitting the form -->
-                    </div>
-                </form>
-            </aside>
             <ol>
                 <!-- First Player -->
                 <li>
                     <article>
                         <h2>Player 1</h2>
                         <h3>PLAYER NAME</h3> <!-- Will be filled by the player. -->
-                        <p>X</p> <!-- Symbol of that player. -->
+                        <p class="player-symbol">X</p> <!-- Symbol of that player. -->
                         <button class="btn btn-alt">Edit</button> <!-- To edit the entered data. -->
                     </article>
                 <!-- Second Player -->
@@ -53,7 +57,7 @@
                     <article>
                         <h2>Player 2</h2>
                         <h3>PLAYER NAME</h3>
-                        <p>O</p>
+                        <p class="player-symbol">O</p>
                         <button class="btn btn-alt">Edit</button>
                     </article>
                 </li>
