@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="overlays.css">
     <link rel="stylesheet" href="configuration.css">
+    <link rel="stylesheet" href="game.css">
 </head>
 <body>
     <div id="backdrop"></div> <!-- only for styling purposes. -->
@@ -67,16 +68,16 @@
 
         <!-- Section with the game field. -->
         <section id="active-game">
-            <article>
-                <h3>You won <span id="winner-name">PLAYER NAME</span>!</h3>
+            <article id="game-over">
+                <h2>You won <span id="winner-name">PLAYER NAME</span>!</h2>
                 <p>Click "Start New Game" above, if you want to play once again</p>
             </article>
             <p>It's your turn <span id="active-player-name">PLAYER NAME</span>!</p> <!-- It will indicate whose turn it is. "span" to target this element in JS. Player name should change with every turn. -->
             <!-- Game field as a list of fields whose order matters. -->
-            <ol>
+            <ol id="game-board">
+                <li class="disabled">X</li> <!-- we will add this class dynamically via JS -->
                 <li></li>
-                <li></li>
-                <li></li>
+                <li class="disabled">O</li>
 
                 <li></li>
                 <li></li>
