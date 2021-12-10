@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="overlays.css">
     <link rel="stylesheet" href="configuration.css">
     <link rel="stylesheet" href="game.css">
+    <script src="config.js" defer></script> <!-- "defer" attribute - scripts are executed once the entire HTML content has been loaded and parsed. Otherwise interacting with the DOM won't be possible. -->
+    <script src="game.js" defer></script>
+    <script src="app.js" defer></script> <!-- config.js and game.js will execute earlier than app.js. First the configuration ang game logic must be defined, then we can refer it in app.js to start everything. -->
 </head>
 <body>
     <div id="backdrop"></div> <!-- only for styling purposes. -->
@@ -35,7 +38,7 @@
                 </div>
                 <!-- This div will hold the buttons for this form. -->
                 <div>
-                    <button type="button" class="btn btn-alt">Close</button> <!-- to close the overlay. -->
+                    <button type="button" class="btn btn-alt" id="cancel-config-btn">Cancel</button> <!-- to close the overlay. -->
                     <button type="submit" class="btn">Confirm</button> <!-- for submitting the form -->
                 </div>
             </form>
@@ -50,7 +53,7 @@
                         <h2>Player 1</h2>
                         <h3>PLAYER NAME</h3> <!-- Will be filled by the player. -->
                         <p class="player-symbol">X</p> <!-- Symbol of that player. -->
-                        <button class="btn btn-alt">Edit</button> <!-- To edit the entered data. -->
+                        <button class="btn btn-alt" id="edit-player-1-btn">Edit</button> <!-- To edit the entered data. -->
                     </article>
                 <!-- Second Player -->
                 </li>
@@ -59,7 +62,7 @@
                         <h2>Player 2</h2>
                         <h3>PLAYER NAME</h3>
                         <p class="player-symbol">O</p>
-                        <button class="btn btn-alt">Edit</button>
+                        <button class="btn btn-alt" id="edit-player-2-btn">Edit</button> <!-- These buttons we can select in JS by id's and then add an Event Listener to them with 'click' event. -->
                     </article>
                 </li>
             </ol>
