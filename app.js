@@ -4,7 +4,9 @@
 
 const playerConfigOverlayElement = document.getElementById('config-overlay'); // It will work, because the Event Listeners are at the bottom of app.js and the function OpenPlayerConfig can will execute only, when the EDIT button are clickable (after Event Listeners were added).
 const backdropElement = document.getElementById('backdrop');
+const formEelement = document.querySelector('form'); // select the first <form> element on the page.
 
+// BUTTONS access
 const editPlayer1BtnElement = document.getElementById('edit-player-1-btn'); // name of const should describe what will be stored by the const.
 const editPlayer2BtnElement = document.getElementById('edit-player-2-btn');
 const cancelConfigBtnElement = document.getElementById('cancel-config-btn');
@@ -15,3 +17,5 @@ editPlayer2BtnElement.addEventListener('click', openPlayerConfig);
 
 cancelConfigBtnElement.addEventListener('click', closePlayerConfig);
 backdropElement.addEventListener('click', closePlayerConfig);
+
+formEelement.addEventListener('submit', savePlayerConfig); // built-in event in the browser available in JS.
