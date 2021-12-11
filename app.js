@@ -1,10 +1,11 @@
 // It is good to have several JS files, instead of one large file with all the logic. Different files with different responsibilities are much easier to manage and structure.
 
-// app.js file will execute first to initialize a bunch of things, f.ex. to reach out to different HTML elements and store these elements or pointers at these elements in different JS variables or constants. In the other JS files we wanna use them which are initialized here in app.js (main entry file).
+// app.js file will execute first to initialize a bunch of things, f.ex. to reach out to different HTML elements and store these elements or pointers at these elements in different JS variables or constants. In the other JS files we want to use them which are initialized here in app.js (main entry file).
 
 const playerConfigOverlayElement = document.getElementById('config-overlay'); // It will work, because the Event Listeners are at the bottom of app.js and the function OpenPlayerConfig can will execute only, when the EDIT button are clickable (after Event Listeners were added).
 const backdropElement = document.getElementById('backdrop');
-const formEelement = document.querySelector('form'); // select the first <form> element on the page.
+const formElement = document.querySelector('form'); // select the first <form> element on the page.
+const errorsOutputElement = document.getElementById('config-errors'); // to show error message set in config.js
 
 // BUTTONS access
 const editPlayer1BtnElement = document.getElementById('edit-player-1-btn'); // name of const should describe what will be stored by the const.
@@ -18,4 +19,4 @@ editPlayer2BtnElement.addEventListener('click', openPlayerConfig);
 cancelConfigBtnElement.addEventListener('click', closePlayerConfig);
 backdropElement.addEventListener('click', closePlayerConfig);
 
-formEelement.addEventListener('submit', savePlayerConfig); // built-in event in the browser available in JS.
+formElement.addEventListener('submit', savePlayerConfig); // built-in event in the browser available in JS.

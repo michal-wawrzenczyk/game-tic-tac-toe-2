@@ -34,11 +34,12 @@
                 <div class="form-control"> <!-- it will help with styling later. -->
                     <label for="playername">Player name</label> <!-- "for" to establish connection between label and input. -->
                     <!-- "input" to fetch the name of the player. -->
-                    <input type="text" name="playername" id="playername"/> <!-- id to connect the input with label (accessibility reasons). -->
+                    <input type="text" name="playername" id="playername" required/> <!-- id to connect the input with label (accessibility reasons). -->
                 </div>
+                <p id="config-errors"></p>
                 <!-- This div will hold the buttons for this form. -->
                 <div>
-                    <button type="button" class="btn btn-alt" id="cancel-config-btn">Cancel</button> <!-- to close the overlay. -->
+                    <button type="reset" class="btn btn-alt" id="cancel-config-btn">Cancel</button> <!-- to close the overlay. -->
                     <button type="submit" class="btn">Confirm</button> <!-- for submitting the form -->
                 </div>
             </form>
