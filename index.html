@@ -68,7 +68,7 @@
                     </article>
                 </li>
             </ol>
-            <button class="btn">Start New Game</button> <!-- It starts the game based on the entered data. -->
+            <button class="btn" id="start-game-btn">Start New Game</button> <!-- It starts the game based on the entered data. -->
         </section>
 
         <!-- Section with the game field. -->
@@ -80,9 +80,9 @@
             <p>It's your turn <span id="active-player-name">PLAYER NAME</span>!</p> <!-- It will indicate whose turn it is. "span" to target this element in JS. Player name should change with every turn. -->
             <!-- Game field as a list of fields whose order matters. -->
             <ol id="game-board">
-                <li class="disabled">X</li> <!-- we will add this class dynamically via JS -->
+                <li></li> <!-- we will add this class dynamically via JS -->
                 <li></li>
-                <li class="disabled">O</li>
+                <li></li>
 
                 <li></li>
                 <li></li>

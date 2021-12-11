@@ -19,11 +19,13 @@ const playerConfigOverlayElement = document.getElementById('config-overlay'); //
 const backdropElement = document.getElementById('backdrop');
 const formElement = document.querySelector('form'); // select the first <form> element on the page.
 const errorsOutputElement = document.getElementById('config-errors'); // to show error message set in config.js
+const gameAreaElement = document.getElementById('active-game');
 
 // BUTTONS access
 const editPlayer1BtnElement = document.getElementById('edit-player-1-btn'); // name of const should describe what will be stored by the const.
 const editPlayer2BtnElement = document.getElementById('edit-player-2-btn');
 const cancelConfigBtnElement = document.getElementById('cancel-config-btn');
+const startGameBtnElement = document.getElementById('start-game-btn');
 
 // The buttons must be connected with click listeners to open the overlay whenever we click these EDIT buttons.
 editPlayer1BtnElement.addEventListener('click', openPlayerConfig); // first value is a type of listener, second the function (defined in config.js file), that should be executed. We could add openPlayerConfig() (with parentheses) but then the function will be executed immediately when the line of code gets parsed.
@@ -33,3 +35,5 @@ cancelConfigBtnElement.addEventListener('click', closePlayerConfig);
 backdropElement.addEventListener('click', closePlayerConfig);
 
 formElement.addEventListener('submit', savePlayerConfig); // built-in event in the browser available in JS.
+
+startGameBtnElement.addEventListener('click', startNewGame);

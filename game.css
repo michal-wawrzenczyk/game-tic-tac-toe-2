@@ -1,7 +1,7 @@
 #active-game {
     text-align: center;
     margin: 2rem 0 5rem 0; /* top right bottom left */
-    /*display: none; */
+    display: none;
     /* initially we will not see the game area. We will see it after click on the Start game button. */
 }
 
