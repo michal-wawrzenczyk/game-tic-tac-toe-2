@@ -1,6 +1,19 @@
 // It is good to have several JS files, instead of one large file with all the logic. Different files with different responsibilities are much easier to manage and structure.
-
 // app.js file will execute first to initialize a bunch of things, f.ex. to reach out to different HTML elements and store these elements or pointers at these elements in different JS variables or constants. In the other JS files we want to use them which are initialized here in app.js (main entry file).
+
+let editedPlayer = 0;// not const, because the value stored in there will be changing
+
+// the players array should be updated whenever a name was entered for them.
+const players = [
+    {
+        name: '', // initially is empty, but it must be set before the game start.
+        symbol: 'X' // unchangeable
+    },
+    {
+        name: '',
+        symbol: 'O'
+    },
+]; // an array with two objects with name property
 
 const playerConfigOverlayElement = document.getElementById('config-overlay'); // It will work, because the Event Listeners are at the bottom of app.js and the function OpenPlayerConfig can will execute only, when the EDIT button are clickable (after Event Listeners were added).
 const backdropElement = document.getElementById('backdrop');

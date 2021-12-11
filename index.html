@@ -50,20 +50,21 @@
             <ol>
                 <!-- First Player -->
                 <li>
-                    <article>
+                    <article id="player-1-data">
                         <h2>Player 1</h2>
                         <h3>PLAYER NAME</h3> <!-- Will be filled by the player. -->
                         <p class="player-symbol">X</p> <!-- Symbol of that player. -->
-                        <button class="btn btn-alt" id="edit-player-1-btn">Edit</button> <!-- To edit the entered data. -->
+                        <button class="btn btn-alt" id="edit-player-1-btn" data-playerid="1">Edit</button> <!-- To edit the entered data. -->
+                        <!-- "data" attribute can be added to any HTML element (data-chosen_identifier). Whatever we store in such a data attribute is treated as a string value type. -->
                     </article>
                 <!-- Second Player -->
                 </li>
                 <li>
-                    <article>
+                    <article id="player-2-data">
                         <h2>Player 2</h2>
                         <h3>PLAYER NAME</h3>
                         <p class="player-symbol">O</p>
-                        <button class="btn btn-alt" id="edit-player-2-btn">Edit</button> <!-- These buttons we can select in JS by id's and then add an Event Listener to them with 'click' event. -->
+                        <button class="btn btn-alt" id="edit-player-2-btn" data-playerid="2">Edit</button> <!-- These buttons we can select in JS by id's and then add an Event Listener to them with 'click' event. -->
                     </article>
                 </li>
             </ol>
