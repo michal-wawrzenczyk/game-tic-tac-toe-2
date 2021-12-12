@@ -41,9 +41,59 @@ function selectGameField(event) {
     selectedField.classList.add('disabled'); // li.disabled in game.css file
 
     gameData[selectedRow][selectedColumn] = activePlayer + 1; // first [] to dive into the main array and select one of the child array, second [] to select item in the child array. +1 because activePlayer by default is set to 0. We can console.log(gameData); to see how it works.
+    const winnerId = checkForGameOver();
+    console.log(winnerId);
+
+    currentRound++; // or currentRound = currentRound + 1;
 
     // switch player turn
     switchPlayer(); // execute it when game field was selected - it works, but we can change the symbol in one field more than once, which is wrong.
     // don't select already occupied field
     // keep track of all the selected fields
+}
+
+function checkForGameOver() {
+    // check all rows and determine whether one of these rows belongs to the same player.
+    for (let i = 0; i < 3; i++) { // i++ - increment the dynamic index "i" by one after every iteration (i = 0,1 or 2)
+        if (
+            gameData[i][0] > 0 &&
+            gameData[i][0] === gameData[i][1] &&
+            gameData[i][1] === gameData[i][2]
+        ) {
+            return gameData[i][0]; // return the winner id stored in [i][0].
+        }
+    }
+    // check all columns or equality
+    for (let i = 0; i < 3; i++) {
+        if (
+            gameData[0][i] > 0 && // here 0 means the first row in game board (first inner array in gameData array)
+            gameData[0][i] === gameData[1][i] && // 1 means the second row 2 the third row of game board
+            gameData[0][i] === gameData[2][i]
+        ) {
+            return gameData[0][i];
+        }
+    }
+    // check the diagonal from top left to bottom right
+    if (
+        gameData[0][0] > 0 &&
+        gameData[0][0] === gameData[1][1] &&
+        gameData[1][1] === gameData[2][2]
+    ) {
+        return gameData[0][0];
+    }
+    // check the diagonal from bottom left to top right
+    if (
+        gameData[2][0] > 0 &&
+        gameData[2][0] === gameData[1][1] &&
+        gameData[1][1] === gameData[0][2]
+    ) {
+        return gameData[2][0];
+    }
+    // check for a DRAW
+    if (
+        currentRound === 9 // we exhausted all our rounds.
+    ) {
+        return -1; // -1 as a value for a DRAW
+    }
+    return 0; // if we still have rounds left and there is no winner yet
 }
