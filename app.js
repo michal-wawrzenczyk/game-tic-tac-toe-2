@@ -11,6 +11,7 @@ const gameData = [
 let editedPlayer = 0; // not const, because the value stored in there will be changing
 let activePlayer = 0; // to access the first player symbol (X) initially in function selectGameField and then change it in every turn.
 let currentRound = 1; // to check if there is a DRAW. 1 because we start in round number 1.
+let gameIsOver = false; // initially - we will set is as true, if the game is over.
 
 // the players array should be updated whenever a name was entered for them.
 const players = [

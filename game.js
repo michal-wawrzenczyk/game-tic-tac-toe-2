@@ -7,6 +7,7 @@ function resetGameStatus() {
     // reset data like current round and internal game field
     activePlayer = 0; // because it changes during the game
     currentRound = 1;
+    gameIsOver = false;
     gameOverElement.firstElementChild.innerHTML = 'You won, <span id="winner-name">PLAYER NAME</span>!'; // we need the span to execute the endGame function
     gameOverElement.style.display = 'none'; // to hide the game over information
 
@@ -61,6 +62,10 @@ function selectGameField(event) {
         alert('Please select an empty field!');
         return;
     } // when is > 0 we know that field has been assigned (1 or 2).
+
+    if (gameIsOver) {
+        return; // if gameIsOver is true, there is also no possible to select another field until we restart the game.
+    }
 
     // find out which field was clicked
     // add symbol of the active player
@@ -130,6 +135,7 @@ function checkForGameOver() {
 }
 
 function endGame(winnerId) {
+    gameIsOver = true; // we have to set it back to false when we reset the game
     gameOverElement.style.display = 'block';
 
     // for DRAW scenario
