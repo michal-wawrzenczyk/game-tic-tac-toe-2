@@ -1,6 +1,13 @@
 // It is good to have several JS files, instead of one large file with all the logic. Different files with different responsibilities are much easier to manage and structure.
 // app.js file will execute first to initialize a bunch of things, f.ex. to reach out to different HTML elements and store these elements or pointers at these elements in different JS variables or constants. In the other JS files we want to use them which are initialized here in app.js (main entry file).
 
+const gameData = [
+    [0, 0, 0], // 0 to signal that this field has not been selected by any player. 1 will be for first player, 2 for the second.
+    [0, 0, 0],
+    [0, 0, 0],
+];
+
+
 let editedPlayer = 0; // not const, because the value stored in there will be changing
 let activePlayer = 0; // to access the first player symbol (X) initially in function selectGameField and then change it in every turn.
 

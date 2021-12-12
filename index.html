@@ -80,17 +80,17 @@
             <p>It's your turn <span id="active-player-name">PLAYER NAME</span>!</p> <!-- It will indicate whose turn it is. "span" to target this element in JS. Player name should change with every turn. -->
             <!-- Game field as a list of fields whose order matters. -->
             <ol id="game-board">
-                <li></li> <!-- we will add this class dynamically via JS -->
-                <li></li>
-                <li></li>
+                <li data-col="1" data-row="1"></li> <!-- we will add this class dynamically via JS -->
+                <li data-col="2" data-row="1"></li>
+                <li data-col="3" data-row="1"></li>
 
-                <li></li>
-                <li></li>
-                <li></li>
+                <li data-col="1" data-row="2"></li>
+                <li data-col="2" data-row="2"></li>
+                <li data-col="3" data-row="2"></li>
 
-                <li></li>
-                <li></li>
-                <li></li>
+                <li data-col="1" data-row="3"></li>
+                <li data-col="2" data-row="3"></li>
+                <li data-col="3" data-row="3"></li> <!-- now we can extract that data whenever we click on the list item and use it to dynamically access the different arrays inside gameData and then set the 0 value to 1 or 2. -->
             </ol>
         </section>
     </main>
