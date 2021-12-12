@@ -1,11 +1,39 @@
 // This file is responsible for the game logic.
 
+// resetGameStatus should be called whenever we start a new game
+function resetGameStatus() {
+    // remove game over info
+    // clear game board
+    // reset data like current round and internal game field
+    activePlayer = 0; // because it changes during the game
+    currentRound = 1;
+    gameOverElement.firstElementChild.innerHTML = 'You won, <span id="winner-name">PLAYER NAME</span>!'; // we need the span to execute the endGame function
+    gameOverElement.style.display = 'none'; // to hide the game over information
+
+    // make all the symbols disappear from game board and reset the gameData array. Nested loop - loop through all rows and columns to looping all the items in the gameData.
+
+    let gameFieldIndex = 0;
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            gameData[i][j] = 0; // to set back the gameData to the initial state
+
+            const gameFieldItemElement = gameFieldElements[gameFieldIndex]; // because gameFieldElements is nat an array of arrays, but a single array with nine items. Helper variable is needed - gameFieldIndex.
+            gameFieldItemElement.textContent = '';
+            gameFieldItemElement.classList.remove('disabled');
+            gameFieldIndex++; // increment by 1 after every iteration of that inner loop.
+        }
+    }
+}
+
 function startNewGame() {
     // check player name validation. Or operator to ensure that both player names were set.
     if (players[0].name === '' || players[1].name === '') {
         alert('Please set custom player names!');
         return; // prevent execution of further code.
     }
+
+    resetGameStatus();
+
     // show active player name which has the first move
     activePlayerNameElement.textContent = players[activePlayer].name;
     // make the game field visible
@@ -41,8 +69,11 @@ function selectGameField(event) {
     selectedField.classList.add('disabled'); // li.disabled in game.css file
 
     gameData[selectedRow][selectedColumn] = activePlayer + 1; // first [] to dive into the main array and select one of the child array, second [] to select item in the child array. +1 because activePlayer by default is set to 0. We can console.log(gameData); to see how it works.
-    const winnerId = checkForGameOver();
-    console.log(winnerId);
+    const winnerId = checkForGameOver(); // console.log(winnerId);
+
+    if (winnerId !== 0) { // there is a winner or draw
+        endGame(winnerId);
+    }
 
     currentRound++; // or currentRound = currentRound + 1;
 
@@ -96,4 +127,17 @@ function checkForGameOver() {
         return -1; // -1 as a value for a DRAW
     }
     return 0; // if we still have rounds left and there is no winner yet
+}
+
+function endGame(winnerId) {
+    gameOverElement.style.display = 'block';
+
+    // for DRAW scenario
+    if (winnerId > 0) // which means we won't have a draw, there is a winner
+    {
+        const winnerName = players[winnerId - 1].name; // winnerId is 1 or 2 and we need 0 or 1 to access to items in the array.
+        gameOverElement.firstElementChild.firstElementChild.textContent = winnerName;
+    } else {
+        gameOverElement.firstElementChild.textContent = `It's a draw!`; // replace entire text content of h2 by the information.
+    }
 }

@@ -30,6 +30,7 @@ const formElement = document.querySelector('form'); // select the first <form> e
 const errorsOutputElement = document.getElementById('config-errors'); // to show error message set in config.js
 const gameAreaElement = document.getElementById('active-game');
 const activePlayerNameElement = document.getElementById('active-player-name');
+const gameOverElement = document.getElementById('game-over'); // id assigned to the article
 
 // BUTTONS access
 const editPlayer1BtnElement = document.getElementById('edit-player-1-btn'); // name of const should describe what will be stored by the const.
